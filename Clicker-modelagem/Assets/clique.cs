@@ -8,6 +8,7 @@ public class clique : MonoBehaviour {
     public Text score;
     public int Nresources =0;
     public int resourcesPerClick = 1;
+  
 
 
     // Use this for initialization
