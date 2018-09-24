@@ -44,11 +44,11 @@ public class petry : MonoBehaviour {
     {
         if (ehEntrada)//lugar -> transicao
         {
-            GetLugar(nomeLugar).setTransicao(GetTransicao(nomeTransicao), peso, inibidor);
+            GetLugar(nomeLugar).setTransicao(GetTransicao(nomeTransicao).nome, peso, inibidor);
         }
         else//transicao -> lugar
         {
-            GetTransicao(nomeTransicao).SetLugar(GetLugar(nomeLugar), peso);
+            GetTransicao(nomeTransicao).SetLugar(GetLugar(nomeLugar).nome, peso);
         }
     }
 
@@ -98,6 +98,16 @@ public class petry : MonoBehaviour {
 
     public bool getStatusTransicao(string nomeTransicao)
     {
+        for(int i =0; i < nLugares; i++)
+        {
+            if(lugares[nLugares].TemTransicao(nomeTransicao))
+            {
+                if(!(lugares[nLugares].PodeSeguir(nomeTransicao)))
+                {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 

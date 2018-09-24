@@ -10,6 +10,8 @@ public class lugar : MonoBehaviour {
     public int[] pesos;
     public int ntransicoes;
     public int marcacoes=0;
+    public bool[] podepassar;
+    public int teste;
 
 
 	// Use this for initialization
@@ -22,10 +24,11 @@ public class lugar : MonoBehaviour {
 		
 	}
 
-    public void setTransicao(transicao nomeTransicao,int peso,bool inibidor)//talvez vai precisar sobrecarregar os operadores
+    public void setTransicao(string nomeTransicao,int peso,bool inibidor)//talvez vai precisar sobrecarregar os operadores
     {
-        transicoes[ntransicoes] = nomeTransicao;
+        transicoes[ntransicoes].nome = nomeTransicao;
         pesos[ntransicoes] = peso;
+        podepassar[ntransicoes] = false;
         ntransicoes++;
     }
 
@@ -58,6 +61,18 @@ public class lugar : MonoBehaviour {
 
     public bool PodeSeguir(string nome)
     {
-        //aaaah cansei já
+        for (int i = 0; i < ntransicoes; i++)
+        {
+            if(marcacoes >= pesos[i])
+            {
+                podepassar[i] = true;
+            }
+
+            if (transicoes[i].nome == nome)
+            {
+                teste = i;
+            }
+        }
+        return podepassar[teste];
     }
 }

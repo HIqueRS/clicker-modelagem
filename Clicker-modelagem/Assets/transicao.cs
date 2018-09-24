@@ -22,9 +22,9 @@ public class transicao : MonoBehaviour {
 		
 	}
 
-    public void SetLugar(lugar nome,int peso)
+    public void SetLugar(string nome,int peso)
     {
-        lugares[nlugares] = nome;
+        lugares[nlugares].nome = nome;
         pesos[nlugares] = peso;
         nlugares++;
     }
