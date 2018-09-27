@@ -9,6 +9,8 @@ public class petry : MonoBehaviour {
     public int nLugares = 0,nTransicoes =0;
     public lugar[] lugares;
     public transicao[] transicoes;
+    List<lugar> lugarez;
+    lugar luigar;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,9 @@ public class petry : MonoBehaviour {
     public void criarLugar(string name)
     {
         lugares[nLugares++].nome = name;
+        luigar.nome = name;
+        lugarez.Add(luigar);
+        
     }
 
     public void removeLugar(string name)
@@ -113,7 +118,14 @@ public class petry : MonoBehaviour {
 
     void executaCiclo()
     {
-
+        for(int i =0; i< nTransicoes; i++)
+        {
+            if(getStatusTransicao(transicoes[i].nome))
+            {
+                //matar
+                //dar vida
+            }
+        }
     }
 
     //public void insereCallbackLugar(string nomeLugar, )  não sei como fazer isso aqui pq sla

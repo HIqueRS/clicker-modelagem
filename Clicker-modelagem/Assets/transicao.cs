@@ -2,30 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class transicao : MonoBehaviour {
+public class transicao : Elementos {
 
+    public delegate void listener(); //que porra é essa
 
-    public string nome;
-    public int[] pesos;
-    public lugar[] lugares;
-   // public int marcadores=0; talvez nem precisa
-    public int nlugares;
+    public List<listener> listeners; //serio oq diabos isso faz?
+
+    public bool canProcess;
 
 
     // Use this for initialization
-    void Start () {
-		
+    void CreateTransition  (string name) {
+        nome = name;
+        listeners = new List<listener>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void SetLugar(string nome,int peso)
+	public void AddListener(listener liste)
     {
-        lugares[nlugares].nome = nome;
-        pesos[nlugares] = peso;
-        nlugares++;
+        listeners.Add(liste);
+    }
+
+    public void PreProcess()
+    {
+        canProcess = false;
+        if (inputs.Count == 0) return;
+
+        foreach (Arco inputArc in inputs)
+        {
+            lugar place = inputArc.input as lugar;
+            if (place.marcadores < inputArc.weight) return;
+        }
+        canProcess = true;
+    }
+
+    public bool Process()
+    {
+        if (!canProcess) return false;
+
+        foreach (Arco inputArc in inputs)
+        {
+            lugar place = inputArc.input as lugar;
+            place.RemoveMarkers(inputArc.weight);
+        }
+
+        foreach (Arco outputArc in outputs)
+        {
+            lugar place = outputArc.output as lugar;
+            place.AddMarkers(outputArc.weight);
+        }
+
+        foreach (listener list in listeners) list();
+
+        return true;
     }
 }
