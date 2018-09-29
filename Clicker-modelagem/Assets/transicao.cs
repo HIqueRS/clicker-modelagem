@@ -12,7 +12,7 @@ public class transicao : Elementos {
 
 
     // Use this for initialization
-    void CreateTransition  (string name) {
+    public void CreateTransition  (string name) {
         nome = name;
         listeners = new List<listener>();
 	}

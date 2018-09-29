@@ -6,125 +6,130 @@ using UnityEngine;
 
 public class petry : MonoBehaviour {
 
-    public int nLugares = 0,nTransicoes =0;
-    public lugar[] lugares;
-    public transicao[] transicoes;
-    List<lugar> lugarez;
-    lugar luigar;
+    //public int nLugares = 0,nTransicoes =0;
+    //public lugar[] lugares;
+    //public transicao[] transicoes;
+    //List<lugar> lugarez;
+    //lugar luigar;
+
+    public List<Elementos> elements;
+    public List<lugar> lugarez;
+    public List<transicao> transicoes;
+    public List<Arco> arcos;
 
 	// Use this for initialization
 	void Start () {
+        elements = new List<Elementos>();
+        transicoes = new List<transicao>();
+        lugarez = new List<lugar>();
+        arcos = new List<Arco>();
         
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void criarLugar(string name)
+	public void clear()
     {
-        lugares[nLugares++].nome = name;
-        luigar.nome = name;
-        lugarez.Add(luigar);
-        
+        elements.Clear();
+        transicoes.Clear();
+        lugarez.Clear();
+        arcos.Clear();
     }
 
-    public void removeLugar(string name)
+    public Elementos GetElement(string name)
     {
-        //tirar tudo do lugar e procurar nas transições se alguem tem esse lugar
+        return elements.Find(x => x.nome == name);  
     }
 
-    public void criaTransicao(string nomeTransicao)
+    public lugar GetLugar(string name)
     {
-        transicoes[nTransicoes++].nome = nomeTransicao;
+        return lugarez.Find(x => x.nome == name);
     }
 
-    public void removeTransicao(string nomeTransicao)
+    public transicao GetTransicao(string name)
     {
-
+        return transicoes.Find(x => x.nome == name);
     }
 
-    public void criaConexao(string nomeLugar,string nomeTransicao, int peso, bool ehEntrada, bool inibidor)
+    public void CriarLugar(string nome)
     {
-        if (ehEntrada)//lugar -> transicao
+        lugar novolugar = new lugar();
+        novolugar.Create(nome);
+        elements.Add(novolugar);
+        lugarez.Add(novolugar);
+    }
+
+    public void CriaTransicao(string nome)
+    {
+        transicao novaTrans = new transicao();
+        novaTrans.CreateTransition(nome);
+        elements.Add(novaTrans);
+        transicoes.Add(novaTrans);
+    }
+
+    public bool CriarArco(string nomeInput,string nomeOutput, int peso)
+    {
+        lugar LugarIn = lugarez.Find(x => x.nome == nomeInput);
+        if(LugarIn != null)
         {
-            GetLugar(nomeLugar).setTransicao(GetTransicao(nomeTransicao).nome, peso, inibidor);
-        }
-        else//transicao -> lugar
-        {
-            GetTransicao(nomeTransicao).SetLugar(GetLugar(nomeLugar).nome, peso);
-        }
-    }
-
-    public lugar GetLugar(string nomelugar)
-    {
-        for(int x =0; x < nLugares; x++)
-        {
-            if(nomelugar == lugares[x].nome)
+            transicao TransicaoOut = transicoes.Find(x => x.nome == nomeOutput);
+            if(TransicaoOut == null)
             {
-                return lugares[x];
+                return false;
             }
+
+            Arco newArco = new Arco();
+            newArco.CreateArc(LugarIn, TransicaoOut, 1);
+            arcos.Add(newArco);
+            return true;
         }
-        return lugares[0];
-    }
 
-    public transicao GetTransicao(string nomeTran)
-    {
-        for(int x=0; x< nTransicoes;x++)
+        transicao TransicaoIn = transicoes.Find(x => x.nome == nomeInput);
+        if(TransicaoIn != null)
         {
-            if (nomeTran== transicoes[x].nome)
+            lugar LugarOut = lugarez.Find(x => x.nome == nomeOutput);
+            if (LugarOut == null)
             {
-                return transicoes[x];
+                return false;
             }
+
+            Arco newArco = new Arco();
+            newArco.CreateArc(TransicaoIn, LugarOut, 1);
+            return true;
         }
-        return transicoes[0];
+
+        return false;
     }
 
-    public void removeConexao(string nomeLugar, string nomeTransicao,bool ehEntrada)
+   public void AddListener (string name, transicao.listener callback)
     {
-        //como faz pra remover? 
-    }
-
-    public void setaMarcacaoLugar(string nomeLugar,int qtdMarcas)
-    {
-        GetLugar(nomeLugar).SetMarcadores(qtdMarcas);
-    }
-
-    public void incMarcacaoLugar(string nomeLugar, int qtdMarcas)
-    {
-        GetLugar(nomeLugar).AddMarcadores(qtdMarcas);
-    }
-
-    public int getMarcacao(string nome)
-    {
-        return GetLugar(nome).GetMarcadores();
-    }
-
-    public bool getStatusTransicao(string nomeTransicao)
-    {
-        for(int i =0; i < nLugares; i++)
+        //continuo sem saber pra que essa coisa
+        transicao Transi = transicoes.Find(x => x.nome == name);
+        if (Transi != null)
         {
-            if(lugares[nLugares].TemTransicao(nomeTransicao))
-            {
-                if(!(lugares[nLugares].PodeSeguir(nomeTransicao)))
-                {
-                    return false;
-                }
-            }
+            Transi.AddListener(callback);
         }
-        return true;
     }
 
-    void executaCiclo()
+    public void AddMarcas(string name, int qtd)
     {
-        for(int i =0; i< nTransicoes; i++)
+        lugar newlugar = lugarez.Find(x => x.nome == name);
+        if (newlugar != null)
         {
-            if(getStatusTransicao(transicoes[i].nome))
-            {
-                //matar
-                //dar vida
-            }
+            newlugar.AddMarkers(qtd);
+            Process(); 
+        }
+    }
+
+    public void Process()
+    {
+        foreach(transicao transicao in transicoes)
+        {
+            transicao.PreProcess();
+        }
+
+        foreach(transicao transicao in transicoes)
+        {
+            transicao.Process();
         }
     }
 
