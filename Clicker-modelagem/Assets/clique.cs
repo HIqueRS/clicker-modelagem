@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class clique : MonoBehaviour {
 
     public Text score;
-    public int Nresources =0;
-    public int resourcesPerClick = 1;
+    public float Nresources =0.00f;
+    public float resourcesPerClick = 1;
   
 
 
