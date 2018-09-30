@@ -45,6 +45,11 @@ public class petry : MonoBehaviour {
         return lugarez.Find(x => x.nome == name);
     }
 
+    public Arco GetArco(string nome)
+    {
+        return arcos.Find(x => x.nome == name);
+    }
+
     public transicao GetTransicao(string name)
     {
         return transicoes.Find(x => x.nome == name);
@@ -66,7 +71,7 @@ public class petry : MonoBehaviour {
         transicoes.Add(novaTrans);
     }
 
-    public bool CriarArco(string nomeInput,string nomeOutput, int peso)
+    public bool CriarArco(string nomeInput,string nomeOutput, int peso,string name)
     {
         lugar LugarIn = lugarez.Find(x => x.nome == nomeInput);
         if(LugarIn != null)
@@ -78,7 +83,7 @@ public class petry : MonoBehaviour {
             }
 
             Arco newArco = new Arco();
-            newArco.CreateArc(LugarIn, TransicaoOut, 1);
+            newArco.CreateArc(LugarIn, TransicaoOut, peso, name);
             arcos.Add(newArco);
             return true;
         }
@@ -93,7 +98,7 @@ public class petry : MonoBehaviour {
             }
 
             Arco newArco = new Arco();
-            newArco.CreateArc(TransicaoIn, LugarOut, 1);
+            newArco.CreateArc(TransicaoIn, LugarOut, peso,name);
             return true;
         }
 
@@ -116,8 +121,13 @@ public class petry : MonoBehaviour {
         if (newlugar != null)
         {
             newlugar.AddMarkers(qtd);
-            Process(); 
+            //Process(); 
         }
+    }
+
+    public void SetPesoArco(string nome,int qtd)
+    {
+        GetArco(nome).SetPeso(qtd);
     }
 
     public void Process()

@@ -32,4 +32,9 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
             }
         }
     }
+
+
+    //só pra deixar o meu pensamento salvo em algum lugar pq eu não vou mais fazer algo hj mas a ideia tá aqui
+    //quando clicar no botão puxar a transição do botão e se ela tiver disponivel processar ela e depois setar o novo peso do arco
+    //um obj vai ficar com o gerenciador e os botões vão receber esse obj e vão usar a pegar as coisas de lá e eras isso
 }

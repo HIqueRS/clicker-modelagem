@@ -22,17 +22,18 @@ public class transicao : Elementos {
         listeners.Add(liste);
     }
 
-    public void PreProcess()
+    public bool PreProcess()
     {
         canProcess = false;
-        if (inputs.Count == 0) return;
+        if (inputs.Count == 0) return false;
 
         foreach (Arco inputArc in inputs)
         {
             lugar place = inputArc.input as lugar;
-            if (place.marcadores < inputArc.weight) return;
+            if (place.marcadores < inputArc.weight) return false;
         }
         canProcess = true;
+        return true;
     }
 
     public bool Process()
