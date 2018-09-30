@@ -189,7 +189,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 45216851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 45216853}
+        m_MethodName: PurchasedUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &45216851
@@ -237,11 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 98237473}
-  itemInfo: {fileID: 0}
+  itemInfo: {fileID: 1164315119}
   cost: 10
   cont: 0
-  clickPower: 0
-  itemName: 
+  clickPower: 10
+  itemName: Coletor
 --- !u!1 &79671158
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +329,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 79671161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 79671163}
+        m_MethodName: PurchasedUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &79671161
@@ -366,11 +388,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 98237473}
-  itemInfo: {fileID: 0}
+  itemInfo: {fileID: 356733437}
   cost: 10
   cont: 0
   clickPower: 0
-  itemName: 
+  itemName: "Combust\xEDvel"
 --- !u!1 &98237468
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +680,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 216593537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 216593539}
+        m_MethodName: PurchasedUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &216593537
@@ -706,11 +739,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 98237473}
-  itemInfo: {fileID: 0}
+  itemInfo: {fileID: 745048224}
   cost: 5
   cont: 0
-  clickPower: 0
-  itemName: 
+  clickPower: 5
+  itemName: Coletor
 --- !u!1 &356733435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,8 +1799,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420763290}
-        m_MethodName: power
+      - m_Target: {fileID: 1420763291}
+        m_MethodName: PurchasedUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1836,11 +1869,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 98237473}
-  itemInfo: {fileID: 0}
+  itemInfo: {fileID: 1652063128}
   cost: 1
   cont: 0
-  clickPower: 0
-  itemName: 
+  clickPower: 1
+  itemName: Minerador
 --- !u!1 &1641740578
 GameObject:
   m_ObjectHideFlags: 0
