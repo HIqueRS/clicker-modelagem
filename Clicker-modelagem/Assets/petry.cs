@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class petry : MonoBehaviour {
+public class petry  {
 
     //public int nLugares = 0,nTransicoes =0;
     //public lugar[] lugares;
@@ -25,6 +25,14 @@ public class petry : MonoBehaviour {
         arcos = new List<Arco>();
         
 	}
+
+    public void create()
+    {
+        elements = new List<Elementos>();
+        transicoes = new List<transicao>();
+        lugarez = new List<lugar>();
+        arcos = new List<Arco>();
+    }
 	
 	// Update is called once per frame
 	public void clear()
@@ -45,7 +53,7 @@ public class petry : MonoBehaviour {
         return lugarez.Find(x => x.nome == name);
     }
 
-    public Arco GetArco(string nome)
+    public Arco GetArco(string name)
     {
         return arcos.Find(x => x.nome == name);
     }

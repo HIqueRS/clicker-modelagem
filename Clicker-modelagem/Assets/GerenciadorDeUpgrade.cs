@@ -11,26 +11,40 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
     public int clickPower;
     public string itemName;
     private float _newCost;
+    public GameObject algo;
+    public string nomeArco;
+    public string NomeTransicao;
+    public string NomeLugar;
 
     // Update is called once per frame
     void Update() {
 
-        itemInfo.text = itemName + "\nCost: " + cost +"\nQtd: " + cont;
+        itemInfo.text = itemName + "\nCost: " + algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).GetPeso() + "\nQtd: " + algo.GetComponent<GerenciadorPetry>().pedro.GetLugar(NomeLugar).GetMarcadores();
 
 	}
 
     public void PurchasedUpgrade()
     {
-        if(click.Nresources >= cost)
+        if(algo.GetComponent<GerenciadorPetry>().pedro.GetTransicao(NomeTransicao).PreProcess())
         {
-            click.Nresources -= cost;
+            algo.GetComponent<GerenciadorPetry>().pedro.GetTransicao(NomeTransicao).Process();
+            if(nomeArco != "A_Nave1" || nomeArco != "A_Final")
+                algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).SetPeso(algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).GetPeso() * 1.15f);
             cont++;
             click.resourcesPerClick += clickPower;
-            cost = Mathf.Round(cost * 1.15f);
-            {
-                _newCost = Mathf.Pow(cost, _newCost = cost);
-            }
         }
+        
+
+        //if(click.Nresources >= cost)
+        //{
+        //    click.Nresources -= cost;
+        //    cont++;
+        //    click.resourcesPerClick += clickPower;
+        //    cost = Mathf.Round(cost * 1.15f);
+        //    {
+        //        _newCost = Mathf.Pow(cost, _newCost = cost);
+        //    }
+        //}
     }
 
 

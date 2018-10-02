@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elementos : MonoBehaviour {
+public class Elementos  {
 
     public string nome;
 
@@ -10,7 +10,13 @@ public class Elementos : MonoBehaviour {
     public List<Arco> outputs;
 
 	// Use this for initialization
-	void Start () {
+	public Elementos () {
+        outputs = new List<Arco>();
+        inputs = new List<Arco>();
+    }
+
+    public void create()
+    {
         outputs = new List<Arco>();
         inputs = new List<Arco>();
     }

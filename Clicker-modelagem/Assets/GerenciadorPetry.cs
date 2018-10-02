@@ -5,7 +5,7 @@ using UnityEngine;
 public class GerenciadorPetry : MonoBehaviour {
 
     public petry pedro;
-
+    
 	// Use this for initialization
 	void Start () {
         //só vai startar todo mundo e  os outros q vão setar quando vai passar pro proximo estado
@@ -17,6 +17,10 @@ public class GerenciadorPetry : MonoBehaviour {
         //RecursoColetor - arco3 Recurso -> Coletor
         //RecursoConstrutor - arco4 Recurso -> Construtor
         //T
+
+        // pedro.create();
+        pedro = new petry();
+        pedro.create();
 
         pedro.CriarLugar("Recurso");
 

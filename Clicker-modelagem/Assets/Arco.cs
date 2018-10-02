@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arco : MonoBehaviour {
+public class Arco  {
 
     public Elementos input;
     public Elementos output;
@@ -20,8 +20,14 @@ public class Arco : MonoBehaviour {
         output.AddInput(this);
     }
 
-    public void SetPeso(int peso)
+    public void SetPeso(float peso)
     {
-        weight = peso;
+        
+        weight = (int)peso;
+    }
+
+    public int GetPeso()
+    {
+        return weight;
     }
 }
