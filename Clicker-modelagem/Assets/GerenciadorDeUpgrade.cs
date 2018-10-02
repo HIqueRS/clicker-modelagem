@@ -15,7 +15,7 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        itemInfo.text = itemName + "\nCost: " + cost + "\n Power" + clickPower;
+        itemInfo.text = itemName + "\nCost: " + cost +"\nQtd: " + cont;
 
 	}
 

@@ -148,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: -49}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 42.3, y: -15.2}
+  m_SizeDelta: {x: 82.2, y: 57.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45216850
 MonoBehaviour:
@@ -288,8 +288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 132.90002, y: -49}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 137.25, y: -15.2}
+  m_SizeDelta: {x: 82.2, y: 57.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79671160
 MonoBehaviour:
@@ -639,8 +639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 132.90002, y: 8}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 137.25, y: 55.8}
+  m_SizeDelta: {x: 82.2, y: 61.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216593536
 MonoBehaviour:
@@ -1147,8 +1147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 132.9, y: -107.66875}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 137.25, y: -94.4}
+  m_SizeDelta: {x: 82.2, y: 58.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968873446
 MonoBehaviour:
@@ -1542,8 +1542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: -107.66875}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 42.325, y: -97.334}
+  m_SizeDelta: {x: 82.15, y: 64.669}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338071577
 MonoBehaviour:
@@ -1757,8 +1757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: 8}
-  m_SizeDelta: {x: 73.5, y: 44}
+  m_AnchoredPosition: {x: 42.3, y: 55.8}
+  m_SizeDelta: {x: 82.2, y: 61.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420763287
 MonoBehaviour:
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420763285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f54f93957bd7aa42b1643cb549a9410, type: 3}
   m_Name: 
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   click: {fileID: 98237473}
   itemInfo: {fileID: 1652063128}
-  cost: 1
+  cost: 10
   cont: 0
   clickPower: 1
   itemName: Minerador
@@ -1909,7 +1909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -23, y: 64}
+  m_AnchoredPosition: {x: -22, y: 100}
   m_SizeDelta: {x: 28.9, y: 27.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641740580

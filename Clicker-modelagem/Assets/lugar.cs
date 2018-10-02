@@ -43,7 +43,10 @@ public class lugar : Elementos {
     }
 
 
-    
+    public int GetMarcadores()
+    {
+        return marcadores;
+    }
 
 
 }
