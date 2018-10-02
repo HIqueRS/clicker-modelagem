@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GerenciadorDeUpgrade : MonoBehaviour {
 
@@ -28,10 +29,16 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
         if(algo.GetComponent<GerenciadorPetry>().pedro.GetTransicao(NomeTransicao).PreProcess())
         {
             algo.GetComponent<GerenciadorPetry>().pedro.GetTransicao(NomeTransicao).Process();
-            if(nomeArco != "A_Nave1" || nomeArco != "A_Final")
+            if (nomeArco == "A_Final")
+            {
+                SceneManager.LoadScene(1);
+            }
+
+            if (nomeArco != "A_Nave1" || nomeArco != "A_Final")
                 algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).SetPeso(algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).GetPeso() * 1.15f);
             cont++;
             click.resourcesPerClick += clickPower;
+
         }
         
 
