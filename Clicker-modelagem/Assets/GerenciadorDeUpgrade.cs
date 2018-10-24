@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class GerenciadorDeUpgrade : MonoBehaviour {
 
@@ -10,19 +11,36 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
     public float cost;
     public int cont = 0;
     public int clickPower;
+    public int resurcespersec;
     public string itemName;
     private float _newCost;
     public GameObject algo;
     public string nomeArco;
     public string NomeTransicao;
     public string NomeLugar;
+    int X = 6356, a = 48271, c = 0, m = 2147483647,coletores;
+    public bool naosereprima = false;
+    
 
     // Update is called once per frame
     void Update() {
 
         itemInfo.text = itemName + "\nCost: " + algo.GetComponent<GerenciadorPetry>().pedro.GetArco(nomeArco).GetPeso() + "\nQtd: " + algo.GetComponent<GerenciadorPetry>().pedro.GetLugar(NomeLugar).GetMarcadores();
 
+        coletores = algo.GetComponent<GerenciadorPetry>().pedro.GetLugar("Coletor").GetMarcadores();
+
+        if (naosereprima)
+        {
+            algo.GetComponent<GerenciadorPetry>().pedro.AddMarcas("Recurso", resurcespersec);
+            naosereprima = false;
+        }
 	}
+
+    void Start()
+    {
+        new Thread (Multitread).Start();
+
+    }
 
     public void PurchasedUpgrade()
     {
@@ -42,16 +60,38 @@ public class GerenciadorDeUpgrade : MonoBehaviour {
         }
         
 
-        //if(click.Nresources >= cost)
-        //{
-        //    click.Nresources -= cost;
-        //    cont++;
-        //    click.resourcesPerClick += clickPower;
-        //    cost = Mathf.Round(cost * 1.15f);
-        //    {
-        //        _newCost = Mathf.Pow(cost, _newCost = cost);
-        //    }
-        //}
+      
+    }
+
+    public void Multitread()
+    {
+        for(int xis = 0; xis < 1000;X++)
+        {
+            if (coletores > 0)//algo.GetComponent<GerenciadorPetry>().pedro.GetLugar("Coletor").GetMarcadores() > 0)
+            {
+                Thread.Sleep(randomico() % (180 + coletores));//+ algo.GetComponent<GerenciadorPetry>().pedro.GetLugar("Coletor").GetMarcadores()));
+                // algo.GetComponent<Gerenciado/Petry>().pedro.AddMarcas("Recurso", resurcespersec);
+                //aaaaah();
+                naosereprima = true;
+            }
+           
+
+        }
+    }
+
+    public int randomico()
+    {
+        X = (a * X + c) % m;
+        if(X<0)
+        {
+            X *= -1;
+        }
+        return X;
+    }
+
+    public void aaaaah()
+    {
+        algo.GetComponent<GerenciadorPetry>().pedro.AddMarcas("Recurso", resurcespersec);
     }
 
 

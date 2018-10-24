@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class clique : MonoBehaviour {
 
+   
     public Text score;
     public float Nresources =0.00f;
     public float resourcesPerClick = 1;
@@ -20,7 +22,7 @@ public class clique : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+       
         score.text = "recursos: "+ Gerencia.GetComponent<GerenciadorPetry>().pedro.GetLugar("Recurso").GetMarcadores();
 		
 	}
